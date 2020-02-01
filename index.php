@@ -1,5 +1,5 @@
 <?php
-$pdo = new PDO('mysql:host=localhost; dbname=memo; charset=utf8','root','');
+require_once ('config.php');
 $sql = 'SELECT * FROM notes';
 $stmt = $pdo->prepare($sql);
 $stmt->execute();

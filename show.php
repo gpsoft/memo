@@ -3,7 +3,7 @@ if(isset($_REQUEST['id'])){
     $id = $_REQUEST['id'];
 }
 
-$pdo = new PDO('mysql:host=localhost; dbname=memo; charset=utf8','root','');
+require_once ('config.php');
 $sql = 'SELECT id, title, content FROM notes WHERE id = :id;';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);

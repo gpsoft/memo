@@ -6,7 +6,7 @@ if(isset($_REQUEST['submit'])){
     $content = $_REQUEST['content'];
 }
 
-$pdo = new PDO('mysql:host=localhost; dbname=memo; charset=utf8','root','');
+require_once ('config.php');
 $sql = 'UPDATE notes SET title = :title, content =:content WHERE id = :id' ;
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
