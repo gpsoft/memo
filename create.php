@@ -13,6 +13,8 @@ $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':title', $title, PDO::PARAM_STR);
 $stmt->bindValue(':content', $content, PDO::PARAM_STR);
 $stmt->execute();
+$id = $pdo->lastInsertId();
+
 
 $sql = 'SELECT * FROM notes ';
 $stmt = $pdo->prepare($sql);
@@ -26,5 +28,4 @@ $pdo = null;
 $stmt = null;
 
 //require_once('views/create.tpl.php');
-$id = PDO::lastInsertId();
 header('Location: show.php?id='.$id);
