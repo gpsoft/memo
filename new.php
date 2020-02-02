@@ -1,12 +1,12 @@
 <?php
 require_once ('config.php');
-$sql = 'SELECT * FROM notes';
-$stmt = $pdo->prepare($sql);
-$stmt->execute();
+// $sql = 'SELECT * FROM notes';
+// $stmt = $pdo->prepare($sql);
+// $stmt->execute(); 接続だけで、取得する必要はなかった?。
 
 
 $pdo = null;
-$stmt = null;
+//$stmt = null;
 $message = '新規投稿';
     
 

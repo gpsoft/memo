@@ -18,6 +18,6 @@ $stmt = null;
 
 // print_r($_REQUEST);
 header('Location: index.php');
-exit();
+
 
     
