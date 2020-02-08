@@ -1,9 +1,9 @@
 <?php
 
 if(isset($_REQUEST['submit'])){
-    $id =htmlspecialchars($_REQUEST['id'], ENT_QUOTES, 'UTF-8');
-    $title = htmlspecialchars($_REQUEST['title'], ENT_QUOTES, 'UTF-8');
-    $content = htmlspecialchars($_REQUEST['content'], ENT_QUOTES, 'UTF-8');
+    $id =$_REQUEST['id'];
+    $title = $_REQUEST['title'];
+    $content = $_REQUEST['content'];
 }
 
 require_once ('config.php');

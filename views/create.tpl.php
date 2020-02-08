@@ -15,6 +15,6 @@
     
    
 <?php include('footer.inc.php') ?>
-</bpdy>
+</body>
 
 </html>

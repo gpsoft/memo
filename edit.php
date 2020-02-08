@@ -1,4 +1,20 @@
 <?php
+require_once __DIR__ . '/vendor/autoload.php';
+
+
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+$logger = new Logger('notes');
+$logger->pushHandler(new StreamHandler(__DIR__ . '/log/debug.log', Logger::DEBUG));
+
+//$logger->pushHandler(new MemoryUsageProcessor);
+$logger->debug('デバッグ　メッセージ　');
+$logger->debug(__DIR__);
+$logger->warning('警告レベル　　の　メッセージ　　　');
+$logger->error('EROORです　');
+
+
 
 if(isset($_REQUEST['id'])){
     $id = $_REQUEST['id'];
