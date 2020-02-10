@@ -1,6 +1,10 @@
 <?php
 if(isset($_REQUEST['id'])){
     $id = $_REQUEST['id'];
+}else{
+    //formタグを使っていないからurlに直接delete入力しても削除できる
+    header('Location: show.php?id='.$id);
+    exit();
 }
 
 require_once ('config.php');

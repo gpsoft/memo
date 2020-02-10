@@ -4,6 +4,10 @@ if(isset($_REQUEST['submit'])){
     $id =$_REQUEST['id'];
     $title = $_REQUEST['title'];
     $content = $_REQUEST['content'];
+}else{
+    //$idに数値以外の文字列が入っても表示されてしまいリダイレクトしない。
+    header('Location: show.php?id='.$id);
+    exit();
 }
 
 require_once ('config.php');

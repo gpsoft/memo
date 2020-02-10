@@ -18,6 +18,10 @@ $logger->error('EROORです　');
 
 if(isset($_REQUEST['id'])){
     $id = $_REQUEST['id'];
+}else{
+    //echo "不正なアクセスです";
+    header('Location: index.php');
+    exit();
 }
 require_once ('config.php');
 $sql = 'SELECT id, title, content FROM notes 

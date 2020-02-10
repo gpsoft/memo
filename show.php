@@ -5,10 +5,15 @@ function h($str){
 }
 
 function hbr($str){
-    echo nl2br(htmlspecialchars($str, ENT_QUOTES, 'UTF-8'));
+    echo nl2br(h($str));
 }
 if(isset($_REQUEST['id'])){
     $id = $_REQUEST['id'];
+}else{
+    //echo "不正なアクセスです";
+    //$idに数値以外の文字列が入っても表示されてしまいリダイレクトしない。
+    header('Location:index.php');
+    exit();
 }
 //$_REQUEST $_POST, $_GET, $_COOKIEをまとめた連想配列。いつこれを使うべきなのか？
 

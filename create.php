@@ -5,6 +5,9 @@ if(isset($_REQUEST['submit'])){
     $id =$_REQUEST['id'];
     $title = $_REQUEST['title'];
     $content = $_REQUEST['content'];
+}else{
+    header('Location: index.php');
+    exit();
 }
 require_once ('config.php');
 //postされてきた中身をDBに挿入する
