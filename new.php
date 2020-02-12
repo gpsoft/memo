@@ -10,5 +10,4 @@ $pdo = null;
 $message = '新規投稿';
     
 
-
 require_once 'views/new.tpl.php';

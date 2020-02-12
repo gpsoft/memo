@@ -3,6 +3,7 @@
 <?php include('header.inc.php') ?>
 
 <body>
+<?php var_dump($_GET); ?>
     <h2><?=$message ; ?></h2>
     <p></p>
     <tr>

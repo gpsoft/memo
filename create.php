@@ -1,14 +1,35 @@
 <?php
 //new.phpからpostされてくる
 $message = '作成が完了しました！';
-if(isset($_REQUEST['submit'])){
-    $id =$_REQUEST['id'];
-    $title = $_REQUEST['title'];
-    $content = $_REQUEST['content'];
-}else{
-    header('Location: index.php');
+if(!empty($_REQUEST)){
+    if(is_int($_REQUEST['id'])){
+        header('Location: index.php');
+        exit();
+    }
+    if($_REQUEST['title'] == ''){
+        $error['title'] = 'brank';
+    }
+    if(strlen($_REQUEST['title']) >= 255){
+        $error['title'] = 'length';
+    }
+    if($_REQUEST['content'] == ''){
+        $error['content'] = 'brank';
+    }
+}
+if(!empty($error)){
+    header("Location: new.php?title=".$error['title']."&content=".$error['content']."&request_t=".$_REQUEST['title']."&request_c=".$_REQUEST['content']);
     exit();
 }
+if(empty($error)){
+    if(isset($_REQUEST['submit'])){
+        $id =$_REQUEST['id'];
+        $title = $_REQUEST['title'];
+        $content = $_REQUEST['content'];
+    }else{
+        header('Location: index.php');
+        exit();
+    }
+
 require_once ('config.php');
 //postされてきた中身をDBに挿入する
 //idはAIに設定してあれば自動採番するのでここでidを指定する必要はない。
@@ -37,3 +58,4 @@ $stmt = null;
 
 //require_once('views/create.tpl.php');
 header('Location: show.php?id='.$id);
+}
