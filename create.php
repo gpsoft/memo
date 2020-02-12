@@ -31,6 +31,8 @@ if(empty($error)){
     }
 
 require_once ('config.php');
+$pdo = connectDB();
+
 //postされてきた中身をDBに挿入する
 //idはAIに設定してあれば自動採番するのでここでidを指定する必要はない。
 $sql = 'INSERT INTO notes (title, content) VALUES (:title, :content)' ;

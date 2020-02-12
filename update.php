@@ -30,6 +30,8 @@ if(empty($error)){
     }
 
 require_once ('config.php');
+$pdo = connectDB();
+
 $sql = 'UPDATE notes SET title = :title, content =:content WHERE id = :id' ;
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);

@@ -1,12 +1,6 @@
 <?php
 
-function h($str){
-    echo htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
-}
-
-function hbr($str){
-    echo nl2br(h($str));
-}
+require_once('htmlsp.php');
 if(isset($_REQUEST['id'])){
     $id = $_REQUEST['id'];
 }else{
@@ -18,6 +12,8 @@ if(isset($_REQUEST['id'])){
 //$_REQUEST $_POST, $_GET, $_COOKIEをまとめた連想配列。いつこれを使うべきなのか？
 
 require_once ('config.php');
+$pdo = connectDB();
+
 $sql = 'SELECT id, title, content FROM notes WHERE id = :id;';
 //表示したいカラムを指定　条件は入力されたid :idはプレースホルダ　?を使う場合もある。
 //SQLインジェクションへの対応のためのプリペアードステートメント利用。

@@ -24,6 +24,8 @@ if(isset($_REQUEST['id'])){
 //     exit();
 // }
 require_once ('config.php');
+$pdo = connectDB();
+
 $sql = 'SELECT id, title, content FROM notes 
         WHERE id = :id ';
 $stmt = $pdo->prepare($sql);

@@ -17,6 +17,7 @@ $logger->error('EROORです　');
 
 
 require_once ('config.php');
+$pdo = connectDB();
 $sql = 'SELECT * FROM notes';//一覧表示したいので全部取得
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
@@ -30,5 +31,5 @@ $stmt = null;
 $message = 'メモ一覧';
     
 
-
+require_once 'htmlsp.php';
 require_once 'views/index.tpl.php';

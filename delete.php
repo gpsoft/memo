@@ -8,6 +8,9 @@ if(isset($_REQUEST['id'])){
 }
 
 require_once ('config.php');
+$pdo = connectDB();
+
+
 $sql = 'DELETE FROM notes WHERE id = :id;';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
