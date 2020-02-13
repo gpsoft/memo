@@ -1,6 +1,5 @@
 <?php
 //new.phpからpostされてくる
-$message = '作成が完了しました！';
 if(!empty($_REQUEST)){
     if(is_int($_REQUEST['id'])){
         header('Location: index.php');
@@ -17,8 +16,15 @@ if(!empty($_REQUEST)){
     }
 }
 if(!empty($error)){
-    header("Location: new.php?title=".$error['title']."&content=".$error['content']."&request_t=".$_REQUEST['title']."&request_c=".$_REQUEST['content']);
-    exit();
+    // header("Location: new.php?title=".$error['title']."&content=".$error['content']."&request_t=".$_REQUEST['title']."&request_c=".$_REQUEST['content']);
+    // exit();
+    // $_GET['id'] = $_REQUEST['id'];
+    // $_GET['title'] = $_REQUEST['title'];
+    // $_GET['content'] = $_REQUEST['content'];
+    // $_GET['submit'] = $_REQUEST['submit'];
+
+
+    require_once 'views/new.tpl.php';
 }
 if(empty($error)){
     if(isset($_REQUEST['submit'])){

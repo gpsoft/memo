@@ -3,27 +3,29 @@
 <?php include('header.inc.php') ?>
 
 <body>
-    <!-- <?php print_r($_REQUEST); ?> -->
+    <!-- <?php print_r($error); ?>
+    <?php print_r($_REQUEST); ?>
+    <?php print_r($_GET); ?> -->
     <h2><?=$message ; ?></h2>
     <p></p>
     <form action='create.php' method='post'>
         <input type='hidden' name='id' value="<?php echo $notes['id'] ?>" >
         <label for='title'>タイトル</label><br>
         <input type='text' name='title' 
-        value="<?php if($_GET['request_t']){echo $_GET['request_t'];} ?>">
+        value="<?php if($_REQUEST['title']){echo $_REQUEST['title'];} ?>">
         <br>
-        <?php if($_GET['title'] && $_GET['title'] == 'brank'): ?>
+        <?php if($error['title'] && $error['title'] == 'brank'): ?>
         <?php echo "タイトルを入力してください"; ?>
         <?php endif ?>
         <br>
-        <?php if($_GET['title'] && $_GET['title'] == 'length'): ?>
+        <?php if($error['title'] && $error['title'] == 'length'): ?>
         <?php echo "タイトルは２５５文字以内で入力してください"; ?>
         <?php endif ?>
         <p></p>
         <label>テキスト</label><br>
-        <textarea name='content' cols='40' rows='10'><?php if($_GET['request_c']){echo $_GET['request_c'];} ?></textarea>
+        <textarea name='content' cols='40' rows='10'><?php if($_REQUEST['content']){echo $_REQUEST['content'];} ?></textarea>
         <br>
-        <?php if($_GET['content'] && $_GET['content'] == 'brank'): ?>
+        <?php if($error['content'] && $error['content'] == 'brank'): ?>
         <?php echo "テキストを入力してください"; ?>
         <?php endif ?>
         <p></p>

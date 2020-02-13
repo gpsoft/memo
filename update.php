@@ -15,8 +15,9 @@ if(!empty($_REQUEST)){
     }
 }
 if(!empty($error)){
-    header("Location: edit.php?title=".$error['title']."&content=".$error['content']."&request_t=".$_REQUEST['title']."&request_c=".$_REQUEST['content']."&id=".$_REQUEST['id']);
-    exit();
+    // header("Location: edit.php?title=".$error['title']."&content=".$error['content']."&request_t=".$_REQUEST['title']."&request_c=".$_REQUEST['content']."&id=".$_REQUEST['id']);
+    // exit();
+    require_once 'views/edit.tpl.php';
 }
 if(empty($error)){
     if(isset($_REQUEST['submit'])){
