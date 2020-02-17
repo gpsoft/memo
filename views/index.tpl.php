@@ -7,7 +7,7 @@
     <p></p>
    
     <?php foreach($notes as $note){ ?>
-        <p><a href="show.php?id=<?=$note['id'] ?>"><?= h($note['title'])."\n<br>"; ?></a></p>
+        <p><a href="show.php?id=<?=$note['id'] ?>"><?php echo h($note['title']); ?><br></a></p>
     <?php } ?>
     
     <p><a href='new.php'> 新規メモ</a></p>
