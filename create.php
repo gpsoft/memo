@@ -14,6 +14,11 @@ if(!empty($_REQUEST)){
     if($_REQUEST['content'] == ''){
         $error['content'] = 'brank';
     }
+    $notes['submit'] = $_REQUEST['submit'];
+    $notes['id'] = $_REQUEST['id'];
+    $notes['title'] = $_REQUEST['title'];
+    $notes['content'] = $_REQUEST['content'];
+    
 }
 if(!empty($error)){
     // header("Location: new.php?title=".$error['title']."&content=".$error['content']."&request_t=".$_REQUEST['title']."&request_c=".$_REQUEST['content']);
@@ -27,10 +32,11 @@ if(!empty($error)){
     require_once 'views/new.tpl.php';
 }
 if(empty($error)){
-    if(isset($_REQUEST['submit'])){
-        $id =$_REQUEST['id'];
-        $title = $_REQUEST['title'];
-        $content = $_REQUEST['content'];
+    if(isset($notes['submit'])){
+        $id = $notes['id'];
+        $title = $notes['title'];
+        $content = $notes['content'];
+
     }else{
         header('Location: index.php');
         exit();

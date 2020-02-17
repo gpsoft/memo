@@ -11,9 +11,9 @@
     <h2><?=$message ; ?></h2>
     <p></p>
     <form action='update.php' method='post'>
-        <input type='hidden' name='id' value="<?php if($notes['id']){echo $notes['id'];}elseif($_REQUEST['id']){echo $_REQUEST['id'];} ?>">
+        <input type='hidden' name='id' value="<?php echo $notes['id'];?>">
         <label for='title'>タイトル</label><br>
-        <input type='text' name='title' value="<?php if($notes['title']){echo $notes['title'];}elseif($_REQUEST['title']){echo $_REQUEST['title'];} ?>">
+        <input type='text' name='title' value="<?php echo $notes['title']; ?>">
         <br>
         <?php if($error['title'] == 'brank'): ?>
         <?php echo "タイトルを入力してください"; ?>
@@ -24,7 +24,7 @@
         <?php endif ?>
         <p></p>
         <label>テキスト</label><br>
-        <textarea name='content' cols='40' rows='10'><?php if($notes['content']){echo $notes['content'];}elseif($_REQUEST['content']){echo $_REQUEST['content'];} ?></textarea>
+        <textarea name='content' cols='40' rows='10'><?php echo $notes['content']; ?></textarea>
         <br>
         <?php if($error['content'] == 'brank'): ?>
         <?php echo "テキストを入力してください"; ?>

@@ -4,15 +4,15 @@
 
 <body>
     <!-- <?php print_r($error); ?>
-    <?php print_r($_REQUEST); ?>
-    <?php print_r($_GET); ?> -->
+    <?php echo "R"; print_r($_REQUEST); ?>
+    <?php print_r($notes); ?> -->
     <h2><?=$message ; ?></h2>
     <p></p>
     <form action='create.php' method='post'>
         <input type='hidden' name='id' value="<?php echo $notes['id'] ?>" >
         <label for='title'>タイトル</label><br>
         <input type='text' name='title' 
-        value="<?php if($_REQUEST['title']){echo $_REQUEST['title'];} ?>">
+        value="<?php if($notes['title']){echo $notes['title'];} ?>">
         <br>
         <?php if($error['title'] && $error['title'] == 'brank'): ?>
         <?php echo "タイトルを入力してください"; ?>
@@ -23,7 +23,7 @@
         <?php endif ?>
         <p></p>
         <label>テキスト</label><br>
-        <textarea name='content' cols='40' rows='10'><?php if($_REQUEST['content']){echo $_REQUEST['content'];} ?></textarea>
+        <textarea name='content' cols='40' rows='10'><?php if($notes['content']){echo $notes['content'];} ?></textarea>
         <br>
         <?php if($error['content'] && $error['content'] == 'brank'): ?>
         <?php echo "テキストを入力してください"; ?>

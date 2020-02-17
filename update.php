@@ -13,6 +13,10 @@ if(!empty($_REQUEST)){
     if($_REQUEST['content'] == ''){
         $error['content'] = 'brank';
     }
+    $notes['submit'] = $_REQUEST['submit'];
+    $notes['id'] = $_REQUEST['id'];
+    $notes['title'] = $_REQUEST['title'];
+    $notes['content'] = $_REQUEST['content'];
 }
 if(!empty($error)){
     // header("Location: edit.php?title=".$error['title']."&content=".$error['content']."&request_t=".$_REQUEST['title']."&request_c=".$_REQUEST['content']."&id=".$_REQUEST['id']);
