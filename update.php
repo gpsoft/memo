@@ -5,13 +5,13 @@ if(!empty($_REQUEST)){
         exit();
     }
     if($_REQUEST['title'] == ''){
-        $error['title'] = 'brank';
+        $error['title'] = 'blank';
     }
     if(strlen($_REQUEST['title']) >= 255){
         $error['title'] = 'length';
     }
     if($_REQUEST['content'] == ''){
-        $error['content'] = 'brank';
+        $error['content'] = 'blank';
     }
     $notes['submit'] = $_REQUEST['submit'];
     $notes['id'] = $_REQUEST['id'];

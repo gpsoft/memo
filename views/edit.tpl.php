@@ -15,7 +15,7 @@
         <label for='title'>タイトル</label><br>
         <input type='text' name='title' value="<?php echo $notes['title']; ?>">
         <br>
-        <?php if($error['title'] == 'brank'): ?>
+        <?php if($error['title'] == 'blank'): ?>
         <?php echo "タイトルを入力してください"; ?>
         <?php endif ?>
         <br>
@@ -26,7 +26,7 @@
         <label>テキスト</label><br>
         <textarea name='content' cols='40' rows='10'><?php echo $notes['content']; ?></textarea>
         <br>
-        <?php if($error['content'] == 'brank'): ?>
+        <?php if($error['content'] == 'blank'): ?>
         <?php echo "テキストを入力してください"; ?>
         <?php endif ?>
         <p></p>
