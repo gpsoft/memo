@@ -7,7 +7,7 @@ if(!empty($_REQUEST)){
     if($_REQUEST['title'] == ''){
         $error['title'] = 'blank';
     }
-    if(strlen($_REQUEST['title']) >= 255){
+    if(mb_strlen($_REQUEST['title']) >= 255){
         $error['title'] = 'length';
     }
     if($_REQUEST['content'] == ''){
