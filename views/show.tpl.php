@@ -3,15 +3,11 @@
 <?php include('header.inc.php') ?>
 
 <body>
-<!-- <?php var_dump($_REQUEST); ?>
-<?php var_dump($notes); ?> -->
-    <h2><?=$message ; ?></h2>
+    <h2><?= h($message); ?></h2>
     <p></p>
-    <tr>
-    <td>No.<?=$notes['id']; ?></td><br>
-    <td>タイトル：<?php echo h($notes['title']); ?></td><br>
-    <td>内容：<br><?php echo hbr($notes['content']); ?></td><br>
-    </tr>
+    <p>No.<?= $note['id']; ?></p>
+    <p>タイトル：<?php echo h($note['title']); ?></p>
+    <p>内容：<br><?php echo hbr($note['content']); ?></p>
 
     <p><a href="index.php">一覧に戻る</a> | <a href="edit.php?id=<?=$id ?>">編集</a> | <a href="delete.php?id=<?=$id ?>" name="submit" value="submit">削除</a></p>
 
