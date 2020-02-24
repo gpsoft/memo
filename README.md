@@ -14,7 +14,7 @@ USE memo;
 
 CREATE TABLE `notes` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
-    `title` varchar(20) COLLATE utf8mb4_bin NOT NULL,
+    `title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
     `content` text COLLATE utf8mb4_bin NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
