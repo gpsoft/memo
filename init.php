@@ -14,9 +14,17 @@ function _newLogger() {
 	$logger->setTimezone(new DateTimeZone('Asia/Tokyo'));
 	$handler = new StreamHandler(__DIR__ . '/log/debug.log', Logger::DEBUG);
 	$handler->setFormatter(new LineFormatter(
-		"%datetime%[%level_name%]%extra.file%(%extra.line%):%message% \n", 'Y-m-d H:i:s.v'
+		"%datetime%[%level_name%]%extra.file%(%extra.line%):%message% \n", 'H:i:s.v', true
 	));
 	$logger->pushHandler($handler);
+	$logger->pushProcessor(function($rec){
+		$depth = 5;	// depends on Monolog impl
+		$bt = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, $depth);
+		$rec['extra']['file'] = basename($bt[$depth-1]['file']);
+		$rec['extra']['line'] = $bt[$depth-1]['line'];
+		$rec['level_name'] = substr($rec['level_name'], 0, 1);
+		return $rec;
+	});
 	return $logger;
 }
 function logD($msgOrArray, $caption=null) {
