@@ -1,15 +1,9 @@
 <?php
-require_once 'config.php';
-$pdo = connectDB();
+require_once __DIR__ . '/vendor/autoload.php';
 
-// $sql = 'SELECT * FROM notes';
-// $stmt = $pdo->prepare($sql);
-// $stmt->execute(); 接続だけで、取得する必要はなかった?。
-
-
-$pdo = null;
-//$stmt = null;
+// newページ
+// input: $message, $note, $error
 $message = '新規投稿';
-    
-
+$note = ['id'=>'', 'title'=>'', 'content'=>''];
+$error = ['title'=>'', 'content'=>''];
 require_once 'views/new.tpl.php';

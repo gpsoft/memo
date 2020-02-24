@@ -3,29 +3,25 @@
 <?php include('header.inc.php') ?>
 
 <body>
-    <!-- <?php print_r($error); ?>
-    <?php echo "R"; print_r($_REQUEST); ?>
-    <?php print_r($notes); ?> -->
-    <h2><?= $message; ?></h2>
+    <h2><?= h($message); ?></h2>
     <p></p>
     <form action="create.php" method="post">
-        <input type="hidden" name="id" value="<?php echo $notes['id']; ?>" >
+        <input type="hidden" name="id" value="<?php echo $note['id']; ?>" >
         <label for="title">タイトル</label><br>
-        <input type="text" name="title"
-            value="<?php if($notes['title']){echo $notes['title'];} ?>">
+        <input type="text" name="title" value="<?= h($note['title']); ?>">
         <br>
-        <?php if($error['title'] && $error['title'] == 'blank'): ?>
+        <?php if($error['title'] == 'blank'): ?>
         <?php echo "タイトルを入力してください"; ?>
         <?php endif ?>
         <br>
-        <?php if($error['title'] && $error['title'] == 'length'): ?>
+        <?php if($error['title'] == 'length'): ?>
         <?php echo "タイトルは２５５文字以内で入力してください"; ?>
         <?php endif ?>
         <p></p>
         <label>テキスト</label><br>
-        <textarea name="content" cols="40" rows="10"><?php if($notes['content']){echo $notes['content'];} ?></textarea>
+        <textarea name="content" cols="40" rows="10"><?= hbr($note['content']); ?></textarea>
         <br>
-        <?php if($error['content'] && $error['content'] == 'blank'): ?>
+        <?php if($error['content'] == 'blank'): ?>
         <?php echo "テキストを入力してください"; ?>
         <?php endif ?>
         <p></p>
