@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang='ja'>
+<html lang="ja">
 <?php include('header.inc.php') ?>
 
 <body>
@@ -13,10 +13,8 @@
     <td>内容：<br><?php echo hbr($notes['content']); ?></td><br>
     </tr>
 
-    <p><a href='index.php'>一覧に戻る</a> | <a href='edit.php?id=<?=$id ?>'>編集</a> | <a href='delete.php?id=<?=$id ?>' name='submit' value='submit'>削除</a></p>
-    
-   
+    <p><a href="index.php">一覧に戻る</a> | <a href="edit.php?id=<?=$id ?>">編集</a> | <a href="delete.php?id=<?=$id ?>" name="submit" value="submit">削除</a></p>
+
 <?php include('footer.inc.php') ?>
 </body>
-
 </html>
