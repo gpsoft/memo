@@ -4,6 +4,7 @@
 
 require_once('config.php');
 require_once('htmlsp.php');
+require_once('note.php');
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -29,7 +30,7 @@ function _newLogger() {
 }
 function logD($msgOrArray, $caption=null) {
 	$logger = _newLogger();
-	$msg = is_array($msgOrArray) ? var_export($msgOrArray, true) : $msgOrArray;
+	$msg = is_string($msgOrArray) ? $msgOrArray : var_export($msgOrArray, true);
 	if ( !is_null($caption) ) $msg = $caption . '=' . $msg;
 	$logger->debug($msg);
 }

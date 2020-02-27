@@ -1,24 +1,14 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-if(isset($_REQUEST['id'])){
-    $id = $_REQUEST['id'];
-    logD($id, 'id');
-}else{
-    //formタグを使っていないからurlに直接delete入力しても削除できる
-    header('Location: show.php?id='.$id);
+$id = isset($_REQUEST['id']) ? $_REQUEST['id'] : '';
+if ( $id == '' ) {
+    header('Location: index.php');
     exit();
 }
 
 $pdo = connectDB();
-$sql = 'DELETE FROM notes WHERE id = :id;';
-logD($sql, 'SQL');
-$stmt = $pdo->prepare($sql);
-$stmt->bindValue(':id', $id, PDO::PARAM_INT);
-$stmt->execute();
+removeNote($pdo, $id);
 
-$pdo = null;
-$stmt = null;
-
-// print_r($_REQUEST);
+logD('Redirecting to: index.php');
 header('Location: index.php');
