@@ -46,7 +46,7 @@ function saveNote($pdo, $note) {
             ." SET title=:title, content=:content"
             ." WHERE id=:id";
     }
-    logD($sql, 'SQL');
+    logI($sql, 'SQL');
     $stmt = $pdo->prepare($sql);
     if ( !$newNote ) {
         $stmt->bindValue(':id', $note['id'], PDO::PARAM_INT);
@@ -63,7 +63,7 @@ function saveNote($pdo, $note) {
 
 function lookupNote($pdo, $id) {
     $sql = "SELECT id, title, content FROM notes WHERE id=:id";
-    logD($sql, 'SQL');
+    logI($sql, 'SQL');
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
@@ -72,7 +72,7 @@ function lookupNote($pdo, $id) {
 
 function findAllNotes($pdo) {
     $sql = "SELECT id, title, content FROM notes ORDER BY title, id";
-    logD($sql, 'SQL');
+    logI($sql, 'SQL');
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -80,7 +80,7 @@ function findAllNotes($pdo) {
 
 function removeNote($pdo, $id) {
     $sql = "DELETE FROM notes WHERE id=:id";
-    logD($sql, 'SQL');
+    logI($sql, 'SQL');
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
     $stmt->execute();

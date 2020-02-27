@@ -1,9 +1,10 @@
 <?php
 
+// About DB
 const DSN='mysql:dbname=memo;host=localhost;charset=utf8mb4';
 const DBUSER='root';
 const DBPASS='';
 
-function connectDB() {
-	return new PDO(DSN, DBUSER, DBPASS);
-}
+// About run mode
+const DEBUG=true;
+const LOGLEVEL=Monolog\Logger::INFO;

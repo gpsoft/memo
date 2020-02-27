@@ -3,6 +3,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : '';
 if ( $id == '' ) {
+	logE('IDなし');
     header('Location: index.php');
     exit();
 }
@@ -10,5 +11,5 @@ if ( $id == '' ) {
 $pdo = connectDB();
 removeNote($pdo, $id);
 
-logD('Redirecting to: index.php');
+logI('Redirecting to: index.php');
 header('Location: index.php');

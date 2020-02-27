@@ -2,6 +2,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 if ( $_SERVER['REQUEST_METHOD'] != 'POST' ) {
+	logE('不正メソッド');
     header('Location: index.php');
     exit;
 }
@@ -20,6 +21,6 @@ $pdo = connectDB();
 $note = saveNote($pdo, $note);
 logD($note, 'create a new note');
 
-logD('Redirecting to: show.php?id='.$note['id']);
+logI('Redirecting to: show.php?id='.$note['id']);
 header('Location: show.php?id='.$note['id']);
 

@@ -1,8 +1,14 @@
 # Memo
 
-簡易メモのためのWebアプリ。メモ(タイトルと内容)のCRUDをサポートする。
+簡易メモのためのWebアプリ。メモ(タイトルと本文)のCRUDをサポートする。
 
 # 開発準備
+
+## ソース
+
+```
+$ git clone https://github.com/gpsoft/memo.git
+```
 
 ## DB
 
@@ -24,7 +30,22 @@ CREATE TABLE `notes` (
 
 `config.sample.php`を参考にして、`config.php`を作成する。
 
+```php
+<?php
+
+// About DB
+const DSN='mysql:dbname=memo;host=localhost;charset=utf8mb4';
+const DBUSER='root';
+const DBPASS='';
+
+// About run mode
+const DEBUG=true;
+const LOGLEVEL=Monolog\Logger::INFO;
+```
+
 ## Composer
+
+必要な外部ライブラリをインストール。
 
 ```
 $ composer install
