@@ -6,7 +6,6 @@
     <h2><?= h($message); ?></h2>
     <p></p>
     <form action="create.php" method="post">
-        <input type="hidden" name="id" value="<?php echo $note['id']; ?>" >
         <label for="title">タイトル</label><br>
         <input type="text" name="title" value="<?= h($note['title']); ?>">
         <br>
